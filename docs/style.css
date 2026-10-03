@@ -143,6 +143,37 @@ tr.click:hover td { background: var(--wash); }
 .bar { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--s1) 18%, var(--surface)); overflow: hidden; }
 .bar i { display: block; height: 100%; background: var(--s1); }
 
+/* ---------------------------------------------------------------- about page */
+.banner a { color: inherit; font-weight: 600; text-underline-offset: 2px; }
+.ab-title { font-size: 28px; line-height: 1.2; letter-spacing: -.02em; margin: 6px 0 10px; max-width: 28em; }
+.card.ab { scroll-margin-top: 76px; }
+.ab-p { margin: 6px 0; color: var(--ink2); max-width: 78ch; }
+.ab-p b, .ab-ul b, .ab-tbl b { color: var(--ink); font-weight: 600; }
+.ab-ul { margin: 6px 0; padding-left: 20px; color: var(--ink2); max-width: 86ch; }
+.ab-ul li { margin: 7px 0; }
+details.ab > summary { cursor: pointer; list-style: none; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+details.ab > summary::-webkit-details-marker { display: none; }
+details.ab > summary::before { content: "▸"; color: var(--muted); font-size: 12px; width: 12px; transition: transform .15s; }
+details.ab[open] > summary::before { transform: rotate(90deg); }
+details.ab > summary h3 { font-size: 14px; }
+details.ab > summary .sub { font-size: 12px; color: var(--muted); }
+details.ab > .ab-body { margin-top: 10px; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; }
+.step { display: flex; gap: 10px; border: 1px solid var(--border); border-radius: 10px; padding: 12px; background: var(--page); }
+.step .n { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: var(--surface); font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
+.step b { display: block; margin-bottom: 2px; }
+.step .ab-p { margin: 0; font-size: 13px; }
+.ab-fig { margin-top: 16px; }
+.ab-svg { overflow-x: auto; }
+.ab-svg svg { display: block; width: 100%; min-width: 640px; max-width: 780px; height: auto; margin: 0 auto; }
+.ab-qa h4 { margin: 0 0 2px; font-size: 13.5px; font-weight: 600; }
+.ab-qa .ab-p { margin: 2px 0 8px; font-size: 13px; }
+.ab-tab { text-align: left; display: flex; flex-direction: column; gap: 2px; background: var(--page); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; cursor: pointer; color: var(--ink2); }
+.ab-tab:hover { border-color: var(--axis); background: var(--wash); }
+.ab-tab b { color: var(--ink); } .ab-tab span { font-size: 12.5px; }
+.ab-tbl td, .ab-tbl th { white-space: normal; text-align: left; vertical-align: top; }
+.ab-tbl td:first-child { min-width: 90px; white-space: nowrap; }
+
 /* ---------------------------------------------------------------- tooltip + progress */
 .tip { position: fixed; z-index: 50; pointer-events: none; background: var(--raised); color: var(--ink); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px; box-shadow: 0 4px 16px rgba(0,0,0,.25); max-width: 320px; }
 .progress { height: 6px; border-radius: 3px; background: var(--grid); overflow: hidden; }

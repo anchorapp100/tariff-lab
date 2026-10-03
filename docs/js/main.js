@@ -12,6 +12,7 @@ const VIEWS = [
   { id: "battery", title: "Losses & health", mod: "./battery.js", fn: "renderBattery" },
   { id: "tariffs", title: "Tariffs", mod: "./tariffs.js", fn: "renderTariffs" },
   { id: "model", title: "Data & model", mod: "./model.js", fn: "renderModel" },
+  { id: "about", title: "About", mod: "./about.js", fn: "renderAbout" },
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -40,7 +41,7 @@ async function renderView() {
   const v = VIEWS.find((x) => x.id === S.view);
   const job = S.status && S.status.job;
   if (!S.results) {
-    if (S.view === "model" && S.status) { /* settings are usable while waiting */ } else { renderProgress(root); return; }
+    if ((S.view === "model" || S.view === "about") && S.status) { /* settings and the write-up are usable while waiting */ } else { renderProgress(root); return; }
   }
   try {
     if (v.render) v.render(root);
@@ -84,7 +85,8 @@ function updateHeader() {
     $("chk-brown").disabled = true;
     $("runmsg").textContent = "snapshot · assumptions fixed";
     b.className = "banner demo";
-    b.replaceChildren(el("b", { text: "Pre-computed snapshot. " }), `Generated ${snap.generated || ""} from one household's real year of solar, battery and smart-meter data; read-only, so VAT, battery settings and the optimiser can't be changed here.`,
+    b.replaceChildren(el("b", { text: "Pre-computed snapshot. " }), `Generated ${snap.generated || ""} from one household's real year of solar, battery and smart-meter data; read-only, so VAT, battery settings and the optimiser can't be changed here. `,
+      el("a", { href: "#/about", text: "How it works →" }),
       snap.level === "full" ? el("b", { text: " Private build: contains personal identifiers - not for public release." }) : "");
     b.hidden = false;
   }
