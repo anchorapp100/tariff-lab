@@ -94,7 +94,7 @@ export const pence = (v) => nf2.format(v) + "p";
 export function netPhrase(v) { return v >= 0 ? `${gbp(v)} bill` : `${gbp(-v)} income`; }
 
 // ----------------------------------------------------------------------------- theme
-export function theme() { return document.documentElement.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); }
+export function theme() { return document.documentElement.dataset.theme === "light" ? "light" : "dark"; }       // dark is the default
 export function setTheme(t) {
   document.documentElement.dataset.theme = t;
   try { localStorage.setItem("otl-theme", t); } catch (e) { /* private mode */ }
